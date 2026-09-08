@@ -11,5 +11,8 @@
     "build": "pnpm --filter web build",
     "dev": "pnpm --filter web dev",
     "start": "node server/index.mjs"
+  },
+  "devDependencies": {
+    "vercel": "^59.11.7"
   }
 }
