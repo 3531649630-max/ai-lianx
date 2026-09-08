@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f6f3ee;
+  --color-cream: #fbf8f3;
+  --color-white: #fffdfb;
+  --color-ink: #211d22;
+  --color-soft: #6f666d;
+  --color-faint: #a79ea4;
+  --color-line: rgba(33, 29, 34, 0.1);
+  --color-line-strong: rgba(33, 29, 34, 0.22);
+  --color-clay-50: #fbf1ec;
+  --color-clay-100: #f3ddd5;
+  --color-clay-200: #e6bcae;
+  --color-clay-300: #d6927f;
+  --color-clay-400: #c26a54;
+  --color-clay-500: #a94e37;
+  --color-clay-600: #8f3c29;
+  --color-clay-700: #73301f;
+  --color-clay-800: #56261a;
+  --font-serif: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-paper);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-clay-200);
+  color: var(--color-ink);
+}
+
+.shell {
+  width: min(1200px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-clay-600);
+}
+
+/* Entrance */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes reveal-image {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+@keyframes scan-line {
+  0%,
+  100% {
+    top: 16%;
+  }
+  50% {
+    top: 84%;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    width: 0;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease both;
+}
+
+.animate-scan {
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 1.2s ease-in-out infinite;
+}
+
+.meter-fill {
+  animation: bar-grow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-fade-in,
+  .animate-scan,
+  .animate-pulse-soft,
+  .meter-fill {
+    animation: none;
+  }
+}
